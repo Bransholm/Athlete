@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import kea.exercise.athlete.enums.ParticipantAgeGroupEnum;
 import kea.exercise.athlete.enums.ParticipantGenderEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,14 +24,13 @@ public class Participant {
     private String name;
     private ParticipantGenderEnum gender;
     private int age;
-    private String ageGroup;
+    private ParticipantAgeGroupEnum ageGroup;
     private String club;
 
-    public Participant(String name, ParticipantGenderEnum gender, int age, String ageGroup, String club) {
+    public Participant(String name, ParticipantGenderEnum gender, int age, String club) {
         this.name = name;
         this.gender = gender;
         this.age = age;
-        this.ageGroup = ageGroup;
         this.club = club;
     }
 }
