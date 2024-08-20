@@ -17,9 +17,17 @@ public class Result {
     private int id;
     private ResultTypeEnum resultType;
     private LocalDate date;
-    private String Club;
+    private int result;
     @ManyToOne
     private Participant participant;
     @ManyToOne
     private Discipline discipline;
+
+    public Result(ResultTypeEnum resultType, LocalDate date, int result, Participant participant, Discipline discipline) {
+        this.resultType = resultType;
+        this.date = date;
+        this.result = result;
+        this.participant = participant;
+        this.discipline = discipline;
+    }
 }
