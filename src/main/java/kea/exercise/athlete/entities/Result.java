@@ -1,6 +1,7 @@
 package kea.exercise.athlete.entities;
 
 import jakarta.persistence.*;
+import kea.exercise.athlete.enums.ResultTypeEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +15,7 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String resultType;
+    private ResultTypeEnum resultType;
     private LocalDate date;
     private String Club;
     @ManyToOne
