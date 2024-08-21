@@ -2,6 +2,7 @@ package kea.exercise.athlete.service;
 
 import kea.exercise.athlete.Repositories.ParticipantRepository;
 import kea.exercise.athlete.entities.Participant;
+import kea.exercise.athlete.enums.ParticipantAgeGroupEnum;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,5 +19,6 @@ public class ParticipantService {
     public List<Participant> getAllParticipants() {
         return participantRepository.findAll();
     }
+
 
 }
