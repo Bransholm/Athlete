@@ -7,6 +7,7 @@ import kea.exercise.athlete.entities.Discipline;
 import kea.exercise.athlete.entities.Participant;
 import kea.exercise.athlete.entities.Result;
 import kea.exercise.athlete.enums.DisciplinNameEnum;
+import kea.exercise.athlete.enums.ParticipantAgeGroupEnum;
 import kea.exercise.athlete.enums.ParticipantGenderEnum;
 import kea.exercise.athlete.enums.ResultTypeEnum;
 import org.springframework.boot.CommandLineRunner;
@@ -70,6 +71,19 @@ public class InitData implements CommandLineRunner {
         John = new Participant("John", ParticipantGenderEnum.Male, 59, "Athlete Club J");
         Mary = new Participant("Mary", ParticipantGenderEnum.Female, 8, "Athlete Club K");
         Mark = new Participant("Mark", ParticipantGenderEnum.Male, 12, "Athlete Club L");
+
+        Alice.setAgeGroup(calculateAgeGroup(Alice.getAge()));
+        Bob.setAgeGroup(calculateAgeGroup(Bob.getAge()));
+        Emma.setAgeGroup(calculateAgeGroup(Emma.getAge()));
+        Tom.setAgeGroup(calculateAgeGroup(Tom.getAge()));
+        Lucy.setAgeGroup(calculateAgeGroup(Lucy.getAge()));
+        Jack.setAgeGroup(calculateAgeGroup(Jack.getAge()));
+        Jane.setAgeGroup(calculateAgeGroup(Jane.getAge()));
+        Paul.setAgeGroup(calculateAgeGroup(Paul.getAge()));
+        Sarah.setAgeGroup(calculateAgeGroup(Sarah.getAge()));
+        John.setAgeGroup(calculateAgeGroup(John.getAge()));
+        Mary.setAgeGroup(calculateAgeGroup(Mary.getAge()));
+        Mark.setAgeGroup(calculateAgeGroup(Mark.getAge()));
 
         participantRepository.save(Alice);
         participantRepository.save(Bob);
@@ -139,6 +153,20 @@ public class InitData implements CommandLineRunner {
 
     }
 
-
+    private ParticipantAgeGroupEnum calculateAgeGroup(int age) {
+        if (age >= 6 && age <= 9) {
+            return ParticipantAgeGroupEnum.Children;
+        } else if (age >= 10 && age <= 13) {
+            return ParticipantAgeGroupEnum.Youth;
+        } else if (age >= 14 && age <= 22) {
+            return ParticipantAgeGroupEnum.Junior;
+        } else if (age >= 23 && age <= 40) {
+            return ParticipantAgeGroupEnum.Adult;
+        } else if (age >= 41) {
+            return ParticipantAgeGroupEnum.Senior;
+        } else {
+            throw new IllegalArgumentException("Age not within a valid range for any age group");
+        }
+    }
 
 }

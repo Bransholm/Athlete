@@ -1,10 +1,7 @@
 package kea.exercise.athlete.entities;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import kea.exercise.athlete.enums.ParticipantAgeGroupEnum;
 import kea.exercise.athlete.enums.ParticipantGenderEnum;
 import lombok.Getter;
@@ -22,8 +19,10 @@ public class Participant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Enumerated(EnumType.STRING)
     private ParticipantGenderEnum gender;
     private int age;
+    @Enumerated(EnumType.STRING)
     private ParticipantAgeGroupEnum ageGroup;
     private String club;
 

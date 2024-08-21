@@ -16,6 +16,7 @@ public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Enumerated(EnumType.STRING)
     private DisciplinNameEnum name;
     @ManyToMany
     private List<Participant> participants;
